@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Amul Kool Saffron - Refreshment in Every Drop</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "noir-bg": "#0a0e1a",
+                    "saffron-glow": "#ffc82e",
+                    "saffron-dark": "#775a00",
+                    "glass-border": "rgba(255, 255, 255, 0.08)",
+                    "glass-bg": "rgba(10, 14, 26, 0.4)",
+                    "text-muted": "#9ba1ad",
+            },
+            "fontFamily": {
+                    "heading": ["Playfair Display", "serif"],
+                    "body": ["Montserrat", "sans-serif"],
+            },
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0a0e1a;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+        }
+        h1, h2, h3, .font-heading {
+            font-family: 'Playfair Display', serif;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+        }
+        .glow-accent {
+            box-shadow: 0 0 20px rgba(255, 200, 46, 0.4);
+        }
+        .text-glow {
+            text-shadow: 0 0 15px rgba(255, 200, 46, 0.5);
+        }
+        .saffron-gradient-text {
+            background: linear-gradient(135deg, #ffc82e 0%, #f5a623 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-saffron-btn {
+            background: linear-gradient(135deg, #ffc82e 0%, #f5a623 100%);
+            color: #0a0e1a;
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden selection:bg-saffron-glow selection:text-noir-bg">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 transition-all duration-300 py-6 px-6 md:px-16 flex justify-between items-center max-w-[100vw] mx-auto mix-blend-difference">
+<!-- Brand -->
+<a class="font-heading text-3xl font-bold text-white tracking-wide" href="#">
+            Amul <span class="italic font-light">Kool</span>
+</a>
+<!-- Navigation Links (Desktop) -->
+<div class="hidden md:flex space-x-12 items-center">
+<a class="font-body text-xs tracking-[0.2em] uppercase text-white hover:text-saffron-glow transition-colors duration-300" href="#">Our Flavors</a>
+<a class="font-body text-xs tracking-[0.2em] uppercase text-saffron-glow transition-colors duration-300" href="#">Saffron Benefits</a>
+<a class="font-body text-xs tracking-[0.2em] uppercase text-white hover:text-saffron-glow transition-colors duration-300" href="#">Testimonials</a>
+</div>
+<!-- Trailing Action -->
+<div class="flex items-center gap-6">
+<a class="hidden md:inline-flex items-center justify-center px-8 py-3 rounded-none border border-saffron-glow text-saffron-glow font-body text-xs uppercase tracking-[0.2em] hover:bg-saffron-glow hover:text-noir-bg transition-all duration-300" href="#">
+                Buy Now
+            </a>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-white p-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu_open</span>
+</button>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative w-full h-screen flex items-center overflow-hidden">
+<!-- Background Video/Image -->
+<div class="absolute inset-0 z-0">
+<img alt="Abstract Saffron Swirls" class="w-full h-full object-cover opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-g2aJWs2Z2rlSi0Gysobpl9LJ_Wi5Nsp2hwO1D9we9eenjW8SRZKgzRuE8EzEBuXqBahauAY9uvOnLEwZtjMJCOzaHNrXrGu-6A4aI4UXqAt7ycxGeHImk64VCZkM-snxphYXSGVa2f0gXOaylMvZmr6xApyo2RG7ZwqRGAhaIIvZVKxsC4TUCLczbFuaiidgSbvcGURz25TD-CAQ4efH62VCFePESI86xrMk4oYDXmqV1sgxhGW2vAtdRdtXrdw_ULxyi8nEnQM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-noir-bg via-noir-bg/50 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-noir-bg via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-16 flex flex-col md:flex-row items-center justify-between mt-20">
+<!-- Text Content -->
+<div class="flex flex-col space-y-8 max-w-2xl">
+<div class="flex items-center gap-4">
+<div class="h-[1px] w-12 bg-saffron-glow"></div>
+<span class="font-body text-xs uppercase text-saffron-glow tracking-[0.3em]">Premium Blend</span>
+</div>
+<h1 class="font-heading text-5xl md:text-7xl lg:text-8xl text-white leading-[1.1]">
+                        Pure <br/><span class="italic text-gray-300">Refreshment</span> <br/><span class="saffron-gradient-text">Every Drop</span>
+</h1>
+<p class="font-body text-lg text-text-muted font-light max-w-md leading-relaxed">
+                        The ultimate fusion of rich milk and the world's finest saffron. An invigorating elixir for the modern connoisseur.
+                    </p>
+<div class="pt-8">
+<a class="inline-flex items-center justify-center px-10 py-4 rounded-none bg-saffron-btn font-body text-sm uppercase tracking-[0.2em] font-semibold hover:glow-accent transition-all duration-300" href="#">
+                            Experience Now
+                        </a>
+</div>
+</div>
+<!-- Product Image Wrapper -->
+<div class="relative flex justify-center items-center h-[50vh] md:h-[80vh] w-full md:w-auto mt-12 md:mt-0 right-0 md:absolute md:right-16 z-20">
+<img alt="Amul Kool Saffron Bottle" class="relative z-20 h-full w-auto object-contain drop-shadow-[0_0_30px_rgba(255,200,46,0.3)] mix-blend-lighten" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7ykoZW9hgeOOjikK850ypqxcL9jPrUaru4HxT5m5ZAFyprd_WzYCvxhA-e6_SGGeAD_3xQOamSD2v-vJsYpI5aYzUEVdbSE53L25ikaT9LRm2Go2Sa33Mq4oiwQbCYuKhyVvObHXxkNyJd-jE2Ykpg4g8AhP0eQ5eKrNcYcniX2J8juAcTqmvjJCTDUh9vytYKp4TL2HuT05kaAb2nBGY0Z4O5UhhLI_J5c6ygIB9m4u1gI6BBZWcfYzqvR--F63gn6s4CsbQsdo"/>
+</div>
+</div>
+<!-- Scroll indicator -->
+<div class="absolute bottom-12 left-16 z-20 hidden md:flex flex-col items-center gap-4 opacity-50">
+<span class="font-body text-[10px] tracking-[0.3em] uppercase rotate-90 origin-left translate-y-8">Scroll</span>
+<div class="w-[1px] h-16 bg-white/30 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1/2 bg-white animate-[slide_2s_ease-in-out_infinite]"></div>
+</div>
+</div>
+</section>
+<!-- The Saffron Secret Section (Asymmetric Layout) -->
+<section class="w-full py-32 px-6 md:px-16 relative z-20" id="saffron-secret">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Section Header -->
+<div class="lg:col-span-5 lg:col-start-1 flex flex-col space-y-6">
+<h2 class="font-heading text-4xl md:text-6xl text-white leading-tight">The <br/><span class="italic text-saffron-glow">Saffron</span> Secret</h2>
+<p class="font-body text-text-muted font-light leading-relaxed">
+                            We source only the highest grade saffron threads, known as "Red Gold," to infuse every bottle with authentic flavor, vibrant color, and natural vitality.
+                        </p>
+</div>
+<!-- Glass Cards Container -->
+<div class="lg:col-span-6 lg:col-start-7 relative">
+<!-- Card 1: Energy (Floating top right) -->
+<div class="glass-card rounded-2xl p-8 mb-8 lg:-mr-12 relative z-30 transform hover:-translate-y-2 transition-transform duration-500">
+<div class="w-10 h-10 rounded-full border border-saffron-glow/30 flex items-center justify-center text-saffron-glow mb-6">
+<span class="material-symbols-outlined text-xl">bolt</span>
+</div>
+<h3 class="font-heading text-2xl text-white mb-3">Natural Energy Boost</h3>
+<p class="font-body text-sm text-text-muted font-light">
+                                Saffron uplifting mood and providing a sustained, natural energy lift without the crash.
+                            </p>
+</div>
+<!-- Card 2: Purity (Floating bottom left) -->
+<div class="glass-card rounded-2xl p-8 lg:-ml-12 relative z-20 transform hover:-translate-y-2 transition-transform duration-500">
+<div class="w-10 h-10 rounded-full border border-saffron-glow/30 flex items-center justify-center text-saffron-glow mb-6">
+<span class="material-symbols-outlined text-xl">diamond</span>
+</div>
+<h3 class="font-heading text-2xl text-white mb-3">100% Pure</h3>
+<p class="font-body text-sm text-text-muted font-light">
+                                No artificial colors or flavors. Just real milk and authentic saffron strands you can taste.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Image Showcase (Cinematic Wide) -->
+<section class="w-full py-16 px-6 md:px-16">
+<div class="max-w-7xl mx-auto relative h-[60vh] rounded-3xl overflow-hidden glass-card group">
+<img alt="Saffron strands close up" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-opacity duration-700 grayscale group-hover:grayscale-0 mix-blend-screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6GCohPfr-h3jcvUP-5TKZn0gPLOBSmJ3KXOgaXogSjO9o5-2ovq6J3sw7pnj9SUU9syF87Y4wyEUbC3117wA6UOhpVF2CSDaY5FMdK3gunBgAzYWGBD6o9BlzqQjeiYGx_h8GgJaSNPBpWg8s_-QbLKktSo6p5d65q_8-YrmrdGfe9Yf_UCP3FaQWLoDkOPWXuW5s6pikkQMQC-Scgb6F9sKOHYUFTceGz1Qnv4Ju01CZfHPCAkOkiD4qjVDW4zM36jDKVeibVzU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-noir-bg via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-12">
+<p class="font-heading text-3xl md:text-5xl text-white italic">Sourced from the <br/>finest fields.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-16 border-t border-glass-border mt-16 px-6 md:px-16">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+<!-- Brand & Copyright -->
+<div>
+<div class="font-heading text-2xl text-white mb-2">
+                Amul <span class="italic text-saffron-glow">Kool</span>
+</div>
+<p class="font-body text-xs text-text-muted tracking-wide">
+                © 2024 Amul Kool Saffron.
+            </p>
+</div>
+<!-- Links -->
+<div class="flex flex-wrap gap-8">
+<a class="font-body text-xs uppercase tracking-[0.1em] text-text-muted hover:text-saffron-glow transition-colors" href="#">Privacy</a>
+<a class="font-body text-xs uppercase tracking-[0.1em] text-text-muted hover:text-saffron-glow transition-colors" href="#">Terms</a>
+<a class="font-body text-xs uppercase tracking-[0.1em] text-text-muted hover:text-saffron-glow transition-colors" href="#">Contact</a>
+</div>
+</div>
+</footer>
+<style>
+        @keyframes slide {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(200%); }
+        }
+    </style>
+</body></html>

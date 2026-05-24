@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Amul Kool Saffron - Refreshment in Every Drop</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet" />
+  
+  <!-- Material Symbols -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── FLUID LOADER ── -->
+  <div id="loader" role="dialog" aria-label="Loading animation frames">
+    <div class="loader-container">
+      <h1 class="loader-logo">AMUL KOOL</h1>
+      <p class="loader-progress-text" id="loader-status">Loading frames… 0%</p>
+      <div class="loader-progress-track">
+        <div class="loader-progress-fill" aria-labelledby="loader-status"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── MOBILE NAVIGATION PANEL ── -->
+  <div class="mobile-menu-overlay" id="mobile-menu">
+    <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close menu">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+    <div class="mobile-menu-links">
+      <a class="mobile-menu-link" href="#">Our Flavors</a>
+      <a class="mobile-menu-link" href="#saffron-secret">Saffron Benefits</a>
+      <a class="mobile-menu-link" href="#nutrition">Nutrition Calculator</a>
+      <a class="mobile-menu-link" href="#faq">FAQ</a>
+      <a class="btn-buy-mobile" href="#" id="buy-now-mobile-btn">Buy Now</a>
+    </div>
+  </div>
+
+  <!-- ── BUY NOW CART DRAWER ── -->
+  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+  <div class="buy-drawer" id="buy-drawer" role="dialog" aria-labelledby="drawer-title">
+    <div class="drawer-header">
+      <h2 id="drawer-title" class="drawer-heading">Checkout Order</h2>
+      <button class="drawer-close" id="drawer-close" aria-label="Close checkout">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    
+    <!-- Cart Items -->
+    <div class="cart-items">
+      <!-- Item: Kesar -->
+      <div class="cart-item">
+        <div class="cart-item-details">
+          <span class="cart-item-name">Saffron (Kesar)</span>
+          <span class="cart-item-price">₹25 / bottle</span>
+        </div>
+        <div class="cart-qty-selector">
+          <button class="qty-btn btn-dec" data-flavor="saffron">-</button>
+          <span class="qty-value" id="qty-saffron">0</span>
+          <button class="qty-btn btn-inc" data-flavor="saffron">+</button>
+        </div>
+      </div>
+      <!-- Item: Koko -->
+      <div class="cart-item">
+        <div class="cart-item-details">
+          <span class="cart-item-name">Koko (Chocolate)</span>
+          <span class="cart-item-price">₹25 / bottle</span>
+        </div>
+        <div class="cart-qty-selector">
+          <button class="qty-btn btn-dec" data-flavor="koko">-</button>
+          <span class="qty-value" id="qty-koko">0</span>
+          <button class="qty-btn btn-inc" data-flavor="koko">+</button>
+        </div>
+      </div>
+      <!-- Item: Badam -->
+      <div class="cart-item">
+        <div class="cart-item-details">
+          <span class="cart-item-name">Badam (Almond)</span>
+          <span class="cart-item-price">₹25 / bottle</span>
+        </div>
+        <div class="cart-qty-selector">
+          <button class="qty-btn btn-dec" data-flavor="badam">-</button>
+          <span class="qty-value" id="qty-badam">0</span>
+          <button class="qty-btn btn-inc" data-flavor="badam">+</button>
+        </div>
+      </div>
+      <!-- Item: Rose -->
+      <div class="cart-item">
+        <div class="cart-item-details">
+          <span class="cart-item-name">Rose Splash</span>
+          <span class="cart-item-price">₹25 / bottle</span>
+        </div>
+        <div class="cart-qty-selector">
+          <button class="qty-btn btn-dec" data-flavor="rose">-</button>
+          <span class="qty-value" id="qty-rose">0</span>
+          <button class="qty-btn btn-inc" data-flavor="rose">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Summary -->
+    <div class="cart-summary">
+      <div class="summary-row">
+        <span>Total Quantity</span>
+        <span id="cart-total-qty">0 bottles</span>
+      </div>
+      <div class="summary-row total-row">
+        <span>Subtotal</span>
+        <span id="cart-total-price">₹0</span>
+      </div>
+    </div>
+
+    <!-- Order Form -->
+    <form class="checkout-form" id="checkout-form" novalidate>
+      <div class="form-group">
+        <input type="text" id="check-name" class="form-input" placeholder=" " required />
+        <label for="check-name" class="form-label">Full Name</label>
+      </div>
+      <div class="form-group">
+        <input type="email" id="check-email" class="form-input" placeholder=" " required />
+        <label for="check-email" class="form-label">Email Address</label>
+      </div>
+      <div class="form-group">
+        <input type="text" id="check-address" class="form-input" placeholder=" " required />
+        <label for="check-address" class="form-label">Delivery Address</label>
+      </div>
+      <button type="submit" class="submit-btn" id="btn-checkout">Complete Order</button>
+    </form>
+
+    <!-- Success Screen overlay -->
+    <div class="checkout-success" id="checkout-success">
+      <span class="material-symbols-outlined success-icon">check_circle</span>
+      <h3>Order Placed!</h3>
+      <p>Thank you for pre-ordering. We will contact you via email shortly to confirm shipment details.</p>
+      <button class="close-success-btn" id="close-success-btn">Back to Store</button>
+    </div>
+  </div>
+
+  <!-- ── TOP NAVIGATION BAR ── -->
+  <nav class="navbar">
+    <!-- Brand -->
+    <a class="nav-brand" href="#">
+      Amul <span class="italic font-light">Kool</span>
+    </a>
+    <!-- Navigation Links -->
+    <div class="nav-links">
+      <a class="nav-link" href="#">Our Flavors</a>
+      <a class="nav-link" href="#saffron-secret">Saffron Benefits</a>
+      <a class="nav-link" href="#nutrition">Nutrition Calculator</a>
+      <a class="nav-link" href="#faq">FAQ</a>
+    </div>
+    <!-- Trailing Action -->
+    <div class="nav-actions">
+      <a class="btn-buy" href="#" id="buy-now-btn">Buy Now</a>
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-toggle" id="mobile-menu-toggle" aria-label="Open navigation menu">
+        <span class="material-symbols-outlined">menu_open</span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ── SCROLL BAR ANIMATION SECTION ── -->
+    <section id="pin-container">
+      <div id="sticky-canvas-container">
+        <canvas id="canvas"></canvas>
+        <!-- Title Overlay -->
+        <div class="canvas-title-overlay" id="title-overlay">
+          <h1 class="overlay-title">Amul <span class="italic font-light">Kool</span></h1>
+          <p class="overlay-subtitle">The Taste of India</p>
+        </div>
+      </div>
+      <!-- Scroll Indicator -->
+      <div class="scroll-indicator">
+        <span class="scroll-text">Scroll</span>
+        <div class="scroll-track">
+          <div class="scroll-ball"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── THE SAFFRON SECRET SECTION ── -->
+    <section class="saffron-secret" id="saffron-secret">
+      <div class="section-container">
+        
+        <!-- Left Side: Header & Intro -->
+        <div class="secret-header">
+          <h2 class="secret-title">
+            The <br/><span class="italic saffron-highlight">Saffron</span> Secret
+          </h2>
+          <p class="secret-desc">
+            We source only the highest grade saffron threads, known as "Red Gold," to infuse every bottle with authentic flavor, vibrant color, and natural vitality.
+          </p>
+        </div>
+        
+        <!-- Right Side: Cards Grid -->
+        <div class="secret-cards">
+          
+          <!-- Card 1: Energy -->
+          <div class="glass-card card-offset-right">
+            <div class="card-icon-container">
+              <span class="material-symbols-outlined">bolt</span>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Natural Energy Boost</h3>
+              <p class="card-desc">
+                Saffron uplifting mood and providing a sustained, natural energy lift without the crash.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Card 2: Purity -->
+          <div class="glass-card card-offset-left">
+            <div class="card-icon-container">
+              <span class="material-symbols-outlined">diamond</span>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">100% Pure</h3>
+              <p class="card-desc">
+                No artificial colors or flavors. Just real milk and authentic saffron strands you can taste.
+              </p>
+            </div>
+          </div>
+          
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- ── NUTRITION & ENERGY CALCULATOR SECTION ── -->
+    <section class="nutrition-section" id="nutrition">
+      <div class="nutrition-container">
+        <div class="nutrition-card glass-card">
+          <div class="nutrition-header">
+            <span class="gold-tag">Live Calculator</span>
+            <h2 class="nutrition-title font-heading">Fuel Your <span>Active Day</span></h2>
+            <p class="nutrition-desc">Select how many bottles of Amul Kool you consume to instantly track your daily nutritional values.</p>
+          </div>
+          
+          <!-- Calculator controls -->
+          <div class="calc-control-group">
+            <label for="bottle-slider" class="slider-label">Quantity: <span id="bottle-slider-val">1</span> bottle(s)</label>
+            <div class="slider-wrapper">
+              <input type="range" id="bottle-slider" min="1" max="5" value="1" class="bottle-range-slider" />
+            </div>
+          </div>
+
+          <!-- Gauges grid -->
+          <div class="gauges-grid">
+            <!-- Gauge 1: Energy -->
+            <div class="gauge-item">
+              <div class="gauge-progress">
+                <svg class="gauge-svg" viewBox="0 0 100 100">
+                  <circle class="gauge-bg-circle" cx="50" cy="50" r="40" />
+                  <circle class="gauge-fill-circle" id="gauge-fill-energy" cx="50" cy="50" r="40" stroke-dasharray="251" stroke-dashoffset="180" />
+                </svg>
+                <div class="gauge-text">
+                  <span class="gauge-val" id="val-energy">140</span>
+                  <span class="gauge-unit">kcal</span>
+                </div>
+              </div>
+              <h4 class="gauge-title">Energy</h4>
+            </div>
+
+            <!-- Gauge 2: Protein -->
+            <div class="gauge-item">
+              <div class="gauge-progress">
+                <svg class="gauge-svg" viewBox="0 0 100 100">
+                  <circle class="gauge-bg-circle" cx="50" cy="50" r="40" />
+                  <circle class="gauge-fill-circle" id="gauge-fill-protein" cx="50" cy="50" r="40" stroke-dasharray="251" stroke-dashoffset="200" />
+                </svg>
+                <div class="gauge-text">
+                  <span class="gauge-val" id="val-protein">4.2</span>
+                  <span class="gauge-unit">g</span>
+                </div>
+              </div>
+              <h4 class="gauge-title">Protein</h4>
+            </div>
+
+            <!-- Gauge 3: Calcium -->
+            <div class="gauge-item">
+              <div class="gauge-progress">
+                <svg class="gauge-svg" viewBox="0 0 100 100">
+                  <circle class="gauge-bg-circle" cx="50" cy="50" r="40" />
+                  <circle class="gauge-fill-circle" id="gauge-fill-calcium" cx="50" cy="50" r="40" stroke-dasharray="251" stroke-dashoffset="150" />
+                </svg>
+                <div class="gauge-text">
+                  <span class="gauge-val" id="val-calcium">150</span>
+                  <span class="gauge-unit">mg</span>
+                </div>
+              </div>
+              <h4 class="gauge-title">Calcium</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── IMAGE SHOWCASE (Cinematic Wide) ── -->
+    <section class="showcase-section" id="showcase">
+      <div class="showcase-container">
+        <div class="showcase-card">
+          <img alt="Saffron strands close up" class="showcase-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6GCohPfr-h3jcvUP-5TKZn0gPLOBSmJ3KXOgaXogSjO9o5-2ovq6J3sw7pnj9SUU9syF87Y4wyEUbC3117wA6UOhpVF2CSDaY5FMdK3gunBgAzYWGBD6o9BlzqQjeiYGx_h8GgJaSNPBpWg8s_-QbLKktSo6p5d65q_8-YrmrdGfe9Yf_UCP3FaQWLoDkOPWXuW5s6pikkQMQC-Scgb6F9sKOHYUFTceGz1Qnv4Ju01CZfHPCAkOkiD4qjVDW4zM36jDKVeibVzU"/>
+          <div class="showcase-overlay"></div>
+          <div class="showcase-content">
+            <p class="showcase-text">Sourced from the <br/>finest fields.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FAQ SECTION ── -->
+    <section class="faq-section" id="faq">
+      <div class="faq-container">
+        <h2 class="faq-section-title font-heading">Frequently Asked <span>Questions</span></h2>
+        
+        <div class="faq-accordion-group">
+          <!-- Accordion 1 -->
+          <div class="faq-accordion">
+            <button class="faq-header-btn">
+              <span>Is Amul Kool Saffron made with real Kesar?</span>
+              <span class="material-symbols-outlined expand-arrow">expand_more</span>
+            </button>
+            <div class="faq-content">
+              <p>Yes, absolutely. Amul Kool Saffron is infused with authentic Kashmir-sourced saffron threads, giving it a natural golden color, premium aroma, and healthy energy value without artificial additives.</p>
+            </div>
+          </div>
+
+          <!-- Accordion 2 -->
+          <div class="faq-accordion">
+            <button class="faq-header-btn">
+              <span>What is the shelf life of Amul Kool bottle?</span>
+              <span class="material-symbols-outlined expand-arrow">expand_more</span>
+            </button>
+            <div class="faq-content">
+              <p>Because of our premium double-seal safety capping and sterile packaging, Amul Kool milk drinks have a shelf life of up to 6 months. We recommend cooling before drinking for the absolute best taste experience.</p>
+            </div>
+          </div>
+
+          <!-- Accordion 3 -->
+          <div class="faq-accordion">
+            <button class="faq-header-btn">
+              <span>Are there other flavors available in the shop?</span>
+              <span class="material-symbols-outlined expand-arrow">expand_more</span>
+            </button>
+            <div class="faq-content">
+              <p>Yes! Apart from Saffron, the Amul Kool range features Koko (Chocolate), Badam (Almond), and Rose Splash flavors, all crafted with fresh standardized dairy milk.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ── PREMIUM FOOTER ── -->
+  <footer class="footer" id="contact">
+    <div class="footer-top">
+      <!-- Brand & Bio -->
+      <div class="footer-col brand-col">
+        <div class="footer-brand">
+          Amul <span class="italic saffron-highlight">Kool</span>
+        </div>
+        <p class="footer-bio">
+          Savor the premium, energizing fusion of rich standardized milk and hand-harvested Kashmiri saffron. An invigorating lifestyle experience in every sip.
+        </p>
+        <div class="footer-socials">
+          <a href="#" class="social-icon-btn" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          </a>
+          <a href="#" class="social-icon-btn" aria-label="Twitter">
+            <svg viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 0 1-2.825.775 4.958 4.958 0 0 0 2.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 0 0-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 0 0-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 0 1-2.228-.616v.06a4.923 4.923 0 0 0 3.946 4.827 4.996 4.996 0 0 1-2.212.085 4.936 4.936 0 0 0 4.604 3.417 9.867 9.867 0 0 1-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 0 0 7.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0 0 24 4.59z"/></svg>
+          </a>
+          <a href="#" class="social-icon-btn" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Links Col 1: Flavors -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Our Flavors</h4>
+        <ul class="footer-list">
+          <li><a class="footer-list-link" href="#">Kesar Saffron</a></li>
+          <li><a class="footer-list-link" href="#">Koko Chocolate</a></li>
+          <li><a class="footer-list-link" href="#">Badam Almond</a></li>
+          <li><a class="footer-list-link" href="#">Rose Splash</a></li>
+        </ul>
+      </div>
+
+      <!-- Links Col 2: Info -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Journey</h4>
+        <ul class="footer-list">
+          <li><a class="footer-list-link" href="#saffron-secret">Saffron Benefits</a></li>
+          <li><a class="footer-list-link" href="#nutrition">Nutrition Calculator</a></li>
+          <li><a class="footer-list-link" href="#faq">FAQ Accordion</a></li>
+          <li><a class="footer-list-link" href="#showcase">Testimonials</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Newsletter Club -->
+      <div class="footer-col newsletter-col">
+        <h4 class="footer-heading">Join the Kool Club</h4>
+        <p class="newsletter-desc">Subscribe to receive flavor updates, product drops, and exclusive local store pre-orders.</p>
+        <form class="newsletter-form" id="newsletter-form">
+          <input type="email" class="newsletter-input" id="news-email" placeholder="Your Email Address" required />
+          <button type="submit" class="newsletter-btn" aria-label="Subscribe to newsletter">
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </button>
+        </form>
+        <div class="newsletter-toast" id="news-toast">Subscribed Successfully!</div>
+      </div>
+    </div>
+
+    <!-- Bottom sub-footer -->
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Amul Kool Saffron. All rights reserved. Cooperative Purity.</p>
+      <div class="footer-bottom-links">
+        <a class="footer-bottom-link" href="#">Privacy Policy</a>
+        <a class="footer-bottom-link" href="#">Terms of Use</a>
+        <a class="footer-bottom-link" href="#">Pre-Order Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
